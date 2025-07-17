@@ -5,6 +5,7 @@ import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy';
 import MainLayout from './Layouts/MainLayout.vue';
+import IndexLayout from './Layouts/IndexLayout.vue';
 
 const appName = 'Sistema de coisa';
 
@@ -16,8 +17,8 @@ createInertiaApp({
         const page = await pages[`./Pages/${name}.vue`]();
         page.default.layout = page.default.layout || MainLayout;
         
-        if (name === 'Auth/Login') {
-            page.default.layout = null;
+        if (name === 'Index/Index') {
+            page.default.layout = IndexLayout;
         } else {
             page.default.layout = page.default.layout || MainLayout;
         }
